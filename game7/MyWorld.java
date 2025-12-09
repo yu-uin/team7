@@ -154,27 +154,42 @@ public class MyWorld extends World
     
     // ★追加★ 結果を判定するメソッド
     public void checkResult()
-    {
-        // ゲームオーバー判定 (200点未満)
-        if (totalScore < 200) {
-            showText("GAME OVER", 300, 200);
-            showText("Try Again...", 300, 240);
-        } 
-        // クリア判定 (200点以上)
-        else {
-            String rank = "";
-            
-            // ランク判定
-            if (totalScore <= 250) {
-                rank = "★";         // 200〜250
-            } else if (totalScore <= 300) {
-                rank = "★★";        // 251〜300
-            } else {
-                rank = "★★★";       // 301以上
-            }
-            
-            showText("GAME CLEAR!!", 300, 200);
-            showText("Rank: " + rank, 300, 240);
+{
+    // ゲームオーバー判定 (200点未満)
+    if (totalScore < 200) {
+        // ▼▼▼ 背景をゲームオーバー画像に変える ▼▼▼
+        // ※ "gameover.png" の部分は、あなたが用意した画像ファイル名にしてください
+        GreenfootImage bg = new GreenfootImage("gameover.png");
+        bg.scale(getWidth(), getHeight());
+        setBackground(bg);
+        
+        showText("GAME OVER", 300, 200);
+        showText("Try Again...", 300, 240);
+    } 
+    // クリア判定 (200点以上)
+    else {
+        // ▼▼▼ 背景をクリア画像に変える ▼▼▼
+      // 1. 画像を読み込む
+        GreenfootImage bg = new GreenfootImage("clear.png");
+        
+        // 2. 画面サイズに合わせてリサイズする
+        bg.scale(getWidth(), getHeight());
+        
+        // 3. 背景に設定する
+        setBackground(bg);
+        String rank = "";
+        
+        // ランク判定
+        if (totalScore <= 250) {
+            rank = "★";         // 200〜250
+        } else if (totalScore <= 300) {
+            rank = "★★";        // 251〜300
+        } else {
+            rank = "★★★";       // 301以上
         }
+        
+        showText("GAME CLEAR!!", 300, 200);
+        showText("Rank: " + rank, 300, 240);
     }
+}
 }
