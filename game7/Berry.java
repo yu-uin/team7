@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Berry extends Fruit
 {
-     private int score; // このリンゴの点数
+     private int score; 
     public Berry()
     {
-        // ここで点数を固定します（例：常に100点）
+        
         score = 30;
     }
     public int getScore()
@@ -22,8 +22,7 @@ public class Berry extends Fruit
     {
        setLocation(getX(), getY() + 3);
         
-        // 2. 画面の下端（Worldの高さ）に到達したら消える
-        // getWorld()がnullでないことを確認してから処理します
+        
         if (getWorld() != null && getY() >= getWorld().getHeight() - 1) {
             getWorld().removeObject(this);
         }

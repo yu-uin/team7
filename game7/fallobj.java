@@ -1,5 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.*;  
 /**
  * Write a description of class fallobj here.
  * 
@@ -14,6 +13,6 @@ public class fallobj extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+       
     }    
 }
