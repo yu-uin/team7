@@ -10,4 +10,8 @@ public class StartButton extends Actor
             Greenfoot.setWorld(new MyWorld());
         }
     }
+    public StartButton()
+    {
+           getImage().scale(180, 110);
+       }
 }
