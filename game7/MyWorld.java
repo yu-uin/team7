@@ -66,10 +66,10 @@ public class MyWorld extends World
             spawnPeach();
         }
         
-         if (Greenfoot.getRandomNumber(100) < 2) {
+         if (Greenfoot.getRandomNumber(100) < 1) {
             spawnBig();
         }
-         if (Greenfoot.getRandomNumber(100) < 2) {
+         if (Greenfoot.getRandomNumber(100) < 1) {
             spawnSmall();
         }
     
@@ -155,6 +155,8 @@ public class MyWorld extends World
     // ★追加★ 結果を判定するメソッド
     public void checkResult()
 {
+    
+    removeObjects(getObjects(null));
     // ゲームオーバー判定 (200点未満)
     if (totalScore < 200) {
         // ▼▼▼ 背景をゲームオーバー画像に変える ▼▼▼
@@ -191,5 +193,48 @@ public class MyWorld extends World
         showText("GAME CLEAR!!", 300, 200);
         showText("Rank: " + rank, 300, 240);
     }
+    
+    
 }
+public void spawnFruits()
+{
+    int x = Greenfoot.getRandomNumber(getWidth());
+    Actor item = null;
+    
+    int r = Greenfoot.getRandomNumber(100);
+    
+    // ■ ここで生成と同時にサイズを指定します
+    if (r < 1) {
+        item = new Small();
+        item.getImage().scale(20, 20);  // Smallは20x20にする
+    } 
+    else if (r < 3) {
+        item = new Peach();
+        item.getImage().scale(50, 50);  // Peachは50x50にする
+    }
+    else if (r < 10) {
+        item = new Big();
+        item.getImage().scale(80, 80);  // Bigは80x80にする
+    }
+    else if (r < 20) {
+        item = new Berry();
+        item.getImage().scale(50, 50);  // Berryは30x30にする
+    }
+    else if (r < 40) {
+        item = new Banana();
+        item.getImage().scale(60, 40);  // Bananaは横長にする
+    }
+    else if (r < 60) {
+        item = new Orange();
+        item.getImage().scale(45, 45);  // Orangeは45x45にする
+    }
+    else {
+        item = new Peach();
+        item.getImage().scale(40, 40);  // 普通のAppleは40x40にする
+    }
+    
+    // 画面に追加
+    addObject(item, x, 0);
+}
+
 }
