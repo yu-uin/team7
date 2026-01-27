@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
+    private GreenfootSound bgm = new GreenfootSound("230_BPM166.mp3");
 
     /**
      * Constructor for objects of class MyWorld.
@@ -32,7 +33,7 @@ public class MyWorld extends World
         
         showText("Time: 30", 550, 25);
         
-       
+        bgm.playLoop();
     }
     
     public void act()
@@ -41,7 +42,6 @@ public class MyWorld extends World
         if (isGameFinished == true) {
             
             if (Greenfoot.isKeyDown("enter")) {
-               
                 Greenfoot.setWorld(new TitleWorld());
             }
            
@@ -165,9 +165,9 @@ public class MyWorld extends World
         GreenfootImage bg = new GreenfootImage("gameover.png");
         bg.scale(getWidth(), getHeight());
         setBackground(bg);
-        
         showText("GAME OVER", 300, 200);
         showText("Try Again...", 300, 240);
+        bgm.stop();
     } 
     
     else {
@@ -235,6 +235,10 @@ public void spawnFruits()
     
     // 画面に追加
     addObject(item, x, 0);
+    
+}
+public void stopped() {
+    bgm.pause(); // または bgm.stop();
 }
 
 }

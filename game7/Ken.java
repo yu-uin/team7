@@ -33,7 +33,7 @@ public class Ken extends Actor
     if (banana != null) {
         Banana item = (Banana) banana;    
         int points = item.getScore();     
-        collectItem(item, points);        
+        collectItem(item, points); 
         return; 
     }
 

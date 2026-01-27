@@ -11,7 +11,7 @@ public class Banana extends Fruit
     /**
      * Act - do whatever the Banana wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    */ 
     
     private int score; // このリンゴの点数
     public Banana()
@@ -23,11 +23,6 @@ public class Banana extends Fruit
     {
         return score;
     }
-    
-    
-
-    // 点数を返すメソッド
-  
     public void act() 
     {
        setLocation(getX(), getY() + 3);
@@ -39,3 +34,4 @@ public class Banana extends Fruit
         }
     }    
 }
+    
